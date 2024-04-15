@@ -1,22 +1,26 @@
 #ifndef DATABASE_H
 #define DATABASE_H
+
 #include <QString>
 #include <QSqlDatabase>
-#include <QMessageBox>
 #include <QSqlQuery>
+#include <QSqlError>
+#include <exception>
+#include <QDebug>
+
+class DataBase {
+public:
+    explicit DataBase(QSqlDatabase* db);
+    ~DataBase();
 
 
 
-class DataBase
-{
 private:
-    QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
-    void crateTables();
+    QSqlDatabase* db;
     QSqlQuery query;
 
-public:
-    DataBase(const QString &dbName);
-    QSqlQuery& getQuery();
+    bool openConnection();
+    void createTables();
 };
 
 #endif // DATABASE_H

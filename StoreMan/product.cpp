@@ -1,26 +1,68 @@
 #include "product.h"
 #include "database.h"
+#include <QSqlError>
+#include <QSqlQuery>
 #include <QDebug>
 
-Product::Product()
-{
-
-
+Product::Product(QSqlDatabase* db) : db_(db) {
+    query_ = QSqlQuery();
+    if (!db_) {
+        qWarning() << "Product: Database connection not provided!";
+    }
 }
 
-void Product::addQuery(int id_product ,QString product_name = "null", int price = 0, int discount = 0, int quantity = 0, QString type = "null", QString brand = "null", QString size = "null", QString address_in_store = "null", QString image_address = "null"){
-    DataBase db("store.db");
-    QSqlQuery query = db.getQuery();
-    query.exec("USE product");
+bool Product::addProduct(int id_product, const QString& product_name, int price, int discount, int quantity,
+                          const QString& type, const QString& brand, const QString& size,
+                          const QString& address_in_store, const QString& image_address) {
+    if (!db_) {
+        qCritical() << "Product: Database connection not provided!";
+        return false;
+    }
 
-    QString insertPerson = QString("INSERT INTO person VALUES(") + QString::number(id_product) + ", '" + product_name+ "', " + QString::number(price) + ", " + QString::number(discount) + ", " + QString::number(quantity) + ", '" + type + "', '" + brand + "', '" + size + "', '" + address_in_store + "', '" + image_address + "')";
-    query.exec(insertPerson);
+    QSqlQuery query(*db_);
+    QString insertQuery = "INSERT INTO product (id_product, product_name, price, discount, quantity, type, brand, size, address_in_store, image_address) "
+                          "VALUES (:id_product, :product_name, :price, :discount, :quantity, :type, :brand, :size, :address_in_store, :image_address)";
+
+    query.prepare(insertQuery);
+    query.bindValue(":id_product", id_product);
+    query.bindValue(":product_name", product_name);
+    query.bindValue(":price", price);
+    query.bindValue(":discount", discount);
+    query.bindValue(":quantity", quantity);
+    query.bindValue(":type", type);
+    query.bindValue(":brand", brand);
+    query.bindValue(":size", size);
+    query.bindValue(":address_in_store", address_in_store);
+    query.bindValue(":image_address", image_address);
+
+    if (!query.exec()) {
+        qCritical() << "Product: Error adding product to database:" << query.lastError().text();
+        return false;
+    }
+
+    return true;
 }
 
-QString Product::getName(int id_product){
-    DataBase db("store.db");
-    QSqlQuery query = db.getQuery();
-    query.exec("SELECT first_name FROM product WHERE id_product = " + QString::number(id_product));
-    query.next();
-    return query.value(1).toString();
+QString Product::getProductName(int id_product) {
+    if (!db_) {
+        qCritical() << "Product: Database connection not provided!";
+        return "";
+    }
+
+    QSqlQuery query(*db_);
+    QString selectQuery = "SELECT product_name FROM product WHERE id_product = :id_product";
+
+    query.prepare(selectQuery);
+    query.bindValue(":id_product", id_product);
+
+    if (!query.exec()) {
+        qCritical() << "Product: Error getting product name:" << query.lastError().text();
+        return "";
+    }
+
+    if (query.next()) {
+        return query.value(0).toString();
+    } else {
+        return "";
+    }
 }

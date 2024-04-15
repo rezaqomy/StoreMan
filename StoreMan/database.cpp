@@ -1,29 +1,27 @@
 #include "database.h"
 
-DataBase::DataBase(const QString &dbName)
-{
-    db.setDatabaseName(dbName);
-
-    if (!db.open()){
-        QMessageBox msgbox;
-        msgbox.setText("data base not opened!!!");
-        msgbox.setInformativeText("please restart the program");
-        msgbox.exec();
+DataBase::DataBase(QSqlDatabase* db){
+    this->db = db;
+    if (!openConnection()) {
+        throw std::runtime_error("Failed to open database connection");
     }
-    crateTables();
-
-
+    createTables();
 }
 
-void DataBase::crateTables(){
-    query.exec("CREATE TABLE customer(id_customer int primary key, first_name varchar(30), last_name varchar(40), phone_number varchar(11), addres Qstring)");
-    query.exec("CREATE TABLE product(id_puoduct int primary key, product_name varchar(40), price int, discount int, quantity int, type varchar(30), brand varchar(30), size varchar(20), address_in_store QString, image_address QString");
-    // query.exec("CREATE TABLE order(id_order int primary key, date_order , )");
-    /*TODO*/
-
+DataBase::~DataBase() {
+    db->close(); // Close connection in destructor
 }
 
+bool DataBase::openConnection() {
+    if (!db->open()) {
+        qDebug() << "Database connection error:" << db->lastError();
+        return false;
+    }
+    return true;
+}
 
-QSqlQuery& DataBase::getQuery() {
-    return query;
+void DataBase::createTables() {
+    query.exec("CREATE TABLE customer (id_customer INTEGER PRIMARY KEY AUTOINCREMENT, first_name VARCHAR(30) NOT NULL, last_name VARCHAR(40) NOT NULL, phone_number VARCHAR(11), address TEXT)");
+    query.exec("CREATE TABLE product (id_product INTEGER PRIMARY KEY AUTOINCREMENT, product_name VARCHAR(40) NOT NULL, price INTEGER NOT NULL, discount INTEGER, quantity INTEGER NOT NULL, type VARCHAR(30), brand VARCHAR(30), size VARCHAR(20), address_in_store TEXT, image_address TEXT)");
+    // ... Add more table definitions if needed
 }
