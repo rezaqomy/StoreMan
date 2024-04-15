@@ -3,7 +3,7 @@ QT       += sql widgets
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
-CONFIG += c++11
+CONFIG += c++23
 
 QMAKE_CXXFLAGS_WARN_ON += -Wno-deprecated
 # You can make your code fail to compile if it uses deprecated APIs.
@@ -13,11 +13,13 @@ QMAKE_CXXFLAGS_WARN_ON += -Wno-deprecated
 SOURCES += \
     database.cpp \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    product.cpp
 
 HEADERS += \
     database.h \
-    mainwindow.h
+    mainwindow.h \
+    product.h
 
 FORMS += \
     mainwindow.ui
