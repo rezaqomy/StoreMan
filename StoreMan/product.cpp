@@ -1,5 +1,4 @@
 #include "product.h"
-#include "database.h"
 #include <QSqlError>
 #include <QSqlQuery>
 #include <QDebug>
@@ -11,7 +10,7 @@ Product::Product(QSqlDatabase* db) : db_(db) {
     }
 }
 
-bool Product::addProduct(int id_product, const QString& product_name, int price, int discount, int quantity,
+int Product::addProduct(const QString& product_name, int price, int discount, int quantity,
                           const QString& type, const QString& brand, const QString& size,
                           const QString& address_in_store, const QString& image_address) {
     if (!db_) {
@@ -20,11 +19,10 @@ bool Product::addProduct(int id_product, const QString& product_name, int price,
     }
 
     QSqlQuery query(*db_);
-    QString insertQuery = "INSERT INTO product (id_product, product_name, price, discount, quantity, type, brand, size, address_in_store, image_address) "
-                          "VALUES (:id_product, :product_name, :price, :discount, :quantity, :type, :brand, :size, :address_in_store, :image_address)";
+    QString insertQuery = "INSERT INTO product (product_name, price, discount, quantity, type, brand, size, address_in_store, image_address) "
+                          "VALUES (:product_name, :price, :discount, :quantity, :type, :brand, :size, :address_in_store, :image_address)";
 
     query.prepare(insertQuery);
-    query.bindValue(":id_product", id_product);
     query.bindValue(":product_name", product_name);
     query.bindValue(":price", price);
     query.bindValue(":discount", discount);
@@ -35,12 +33,16 @@ bool Product::addProduct(int id_product, const QString& product_name, int price,
     query.bindValue(":address_in_store", address_in_store);
     query.bindValue(":image_address", image_address);
 
+
+
+    int newProductId = query.lastInsertId().toInt();
+
     if (!query.exec()) {
         qCritical() << "Product: Error adding product to database:" << query.lastError().text();
-        return false;
+        return -1;
     }
 
-    return true;
+    return newProductId;
 }
 
 QString Product::getProductName(int id_product) {

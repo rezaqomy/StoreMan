@@ -13,8 +13,9 @@ int main(int argc, char *argv[])
     db.setDatabaseName("store.db");
     DataBase database(&db);
     Product pr(&db);
-    pr.addProduct(100, "reza", 2000, 10, 10, "small", "nike", "small", "null", "null");
-    qDebug() << pr.getProductName(100);
+    int num = pr.addProduct("rez4hgfda", 2000, 10, 10, "small", "nike", "small", "null", "null");
+
+    qDebug() << pr.getProductName(1580) << "   id : " << num;
     w.show();
     return a.exec();
 }

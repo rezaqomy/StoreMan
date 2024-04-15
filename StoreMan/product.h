@@ -11,7 +11,7 @@ private:
     QSqlDatabase* db_;
     QSqlQuery query_;
 public:
-    bool addProduct(int id_product, const QString& product_name, int price, int discount, int quantity,
+    int addProduct(const QString& product_name, int price, int discount, int quantity,
                               const QString& type, const QString& brand, const QString& size,
                               const QString& address_in_store, const QString& image_address);
     QString getProductName(int id_product);
