@@ -5,15 +5,29 @@
 #include <QSqlQuery>
 #include "database.h"
 
+struct ProductInformation {
+    int id;
+    QString productName;
+    int price;
+    int discount;
+    int quantity;
+    QString type;
+    QString brand;
+    QString size;
+    QString addressInStore;
+    QString imageAddress;
+};
+
+
 class Product
 {
 private:
     QSqlDatabase* db_;
     QSqlQuery query_;
 public:
-    int addProduct(const QString& product_name, int price, int discount, int quantity,
-                              const QString& type, const QString& brand, const QString& size,
-                              const QString& address_in_store, const QString& image_address);
+    int addProduct(ProductInformation* prinfo);
+    ProductInformation* getProduct(int id);
+    bool updateValues(ProductInformation* prinfo);
     QString getProductName(int id_product);
     Product(QSqlDatabase* db);
 };

@@ -10,9 +10,100 @@ Product::Product(QSqlDatabase* db) : db_(db) {
     }
 }
 
-int Product::addProduct(const QString& product_name, int price, int discount, int quantity,
-                          const QString& type, const QString& brand, const QString& size,
-                          const QString& address_in_store, const QString& image_address) {
+ProductInformation* Product::getProduct(int id){
+    ProductInformation prinfo;
+    if (!db_) {
+        qCritical() << "Product: Database connection not provided!";
+        return &prinfo;
+    }
+
+
+
+    QString idStr = QString::number(id);
+    QString queryStr = "SELECT id FROM mytable WHERE id = :id";
+    QSqlQuery query(*db_);
+    query.prepare(queryStr);
+    query.bindValue(":id", idStr);
+
+    if (!query.exec()) {
+        return &prinfo;
+    }
+
+
+
+
+
+
+
+
+
+    QString insertQuery = "SELECT * FROM product WHERE id_product = id"
+                            "VALUES (:id)";
+
+
+
+
+
+
+    query.prepare(insertQuery);
+    query.bindValue(":id", id);
+
+    query.next();
+
+    prinfo.id = query.value(0).toInt();
+    prinfo.productName = query.value(1).toString();
+    prinfo.price = query.value(2).toInt();
+    prinfo.discount = query.value(3).toInt();
+    prinfo.quantity = query.value(4).toInt();
+    prinfo.type = query.value(5).toString();
+    prinfo.brand = query.value(6).toString();
+    prinfo.size = query.value(7).toString();
+    prinfo.addressInStore = query.value(8).toString();
+    prinfo.imageAddress = query.value(9).toString();
+
+    return &prinfo;
+}
+
+bool Product::updateValues(ProductInformation* prinfo){
+    if (!db_) {
+        qCritical() << "Product: Database connection not provided!";
+        return false;
+    }
+
+    QSqlQuery query(*db_);
+    QString insertQuery = "UPDATE product SET product_name = Nproduct_name, price = Nprice, discount = Ndiscount, quantity = Nquantity, type = Ntype, brand = Nbrand, size = Nsize, address_in_store = Naddress_in_store, image_address = Nimage_address) "
+                          "VALUES (:Nproduct_name, :Nprice, :Ndiscount, :Nquantity, :Ntype, :Nbrand, :Nsize, :Naddress_in_store, :Nimage_address)";
+
+
+
+    query.prepare(insertQuery);
+    query.bindValue(":Nproduct_name", prinfo->productName);
+    query.bindValue(":Nprice", prinfo->price);
+    query.bindValue(":Ndiscount", prinfo->discount);
+    query.bindValue(":Nquantity", prinfo->quantity);
+    query.bindValue(":Ntype", prinfo->type);
+    query.bindValue(":Nbrand", prinfo->brand);
+    query.bindValue(":Nsize", prinfo->size);
+    query.bindValue(":Naddress_in_store", prinfo->addressInStore);
+    query.bindValue(":Nimage_address", prinfo->imageAddress);
+
+
+
+    prinfo->id = query.lastInsertId().toInt();
+
+    if (!query.exec()) {
+        qCritical() << "Product: Error adding product to database:" << query.lastError().text();
+        return -1;
+    }
+
+    return true;
+
+}
+
+
+
+
+int Product::addProduct(ProductInformation* prinfo) {
     if (!db_) {
         qCritical() << "Product: Database connection not provided!";
         return false;
@@ -23,26 +114,27 @@ int Product::addProduct(const QString& product_name, int price, int discount, in
                           "VALUES (:product_name, :price, :discount, :quantity, :type, :brand, :size, :address_in_store, :image_address)";
 
     query.prepare(insertQuery);
-    query.bindValue(":product_name", product_name);
-    query.bindValue(":price", price);
-    query.bindValue(":discount", discount);
-    query.bindValue(":quantity", quantity);
-    query.bindValue(":type", type);
-    query.bindValue(":brand", brand);
-    query.bindValue(":size", size);
-    query.bindValue(":address_in_store", address_in_store);
-    query.bindValue(":image_address", image_address);
+    query.bindValue(":product_name", prinfo->productName);
+    query.bindValue(":price", prinfo->price);
+    query.bindValue(":discount", prinfo->discount);
+    query.bindValue(":quantity", prinfo->quantity);
+    query.bindValue(":type", prinfo->type);
+    query.bindValue(":brand", prinfo->brand);
+    query.bindValue(":size", prinfo->size);
+    query.bindValue(":address_in_store", prinfo->addressInStore);
+    query.bindValue(":image_address", prinfo->imageAddress);
 
 
 
-    int newProductId = query.lastInsertId().toInt();
+
+    prinfo->id = query.lastInsertId().toInt();
 
     if (!query.exec()) {
         qCritical() << "Product: Error adding product to database:" << query.lastError().text();
         return -1;
     }
 
-    return newProductId;
+    return prinfo->id;
 }
 
 QString Product::getProductName(int id_product) {
