@@ -5,6 +5,7 @@
 #include <QString>
 #include <QSqlDatabase>
 #include <QSqlQuery>
+#include <QDebug>
 
 struct OrderInformation {
   int id_order;
@@ -22,6 +23,7 @@ class Order
 private:
     QSqlDatabase* db;
     QSqlQuery query;
+    QString vectorToQString(QVector<int> vec) noexcept;
 
 public:
     Order(QSqlDatabase* db);
