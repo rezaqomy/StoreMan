@@ -23,7 +23,7 @@ class Product
 {
 private:
     QSqlDatabase* db_;
-    QSqlQuery query_;
+    QSqlQuery query;
 public:
     int addProduct(ProductInformation* prinfo);
     ProductInformation* getProduct(int id);

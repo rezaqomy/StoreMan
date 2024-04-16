@@ -4,7 +4,7 @@
 #include <QDebug>
 
 Product::Product(QSqlDatabase* db) : db_(db) {
-    query_ = QSqlQuery();
+    query = QSqlQuery(*db_);
     if (!db_) {
         qWarning() << "Product: Database connection not provided!";
     }
@@ -14,13 +14,6 @@ Product::Product(QSqlDatabase* db) : db_(db) {
 
 QVector<ProductInformation> Product::getAllProduct() {
     QVector<ProductInformation> allProduct;
-    if (!db_) {
-        qCritical() << "Product: Database connection not provided!";
-        return allProduct;
-    }
-
-
-    QSqlQuery query(*db_);
 
 
     query.exec("SELECT * FROM product");
@@ -49,16 +42,12 @@ QVector<ProductInformation> Product::getAllProduct() {
 
 ProductInformation* Product::getProduct(int id){
     ProductInformation prinfo;
-    if (!db_) {
-        qCritical() << "Product: Database connection not provided!";
-        return &prinfo;
-    }
+
 
 
 
     QString idStr = QString::number(id);
     QString queryStr = "SELECT id FROM mytable WHERE id = :id";
-    QSqlQuery query(*db_);
     query.prepare(queryStr);
     query.bindValue(":id", idStr);
 
@@ -102,12 +91,7 @@ ProductInformation* Product::getProduct(int id){
 }
 
 bool Product::updateValues(ProductInformation* prinfo){
-    if (!db_) {
-        qCritical() << "Product: Database connection not provided!";
-        return false;
-    }
 
-    QSqlQuery query(*db_);
     QString insertQuery = "UPDATE product SET product_name = Nproduct_name, price = Nprice, discount = Ndiscount, quantity = Nquantity, type = Ntype, brand = Nbrand, size = Nsize, address_in_store = Naddress_in_store, image_address = Nimage_address) "
                           "VALUES (:Nproduct_name, :Nprice, :Ndiscount, :Nquantity, :Ntype, :Nbrand, :Nsize, :Naddress_in_store, :Nimage_address)";
 
@@ -128,10 +112,7 @@ bool Product::updateValues(ProductInformation* prinfo){
 
     prinfo->id = query.lastInsertId().toInt();
 
-    if (!query.exec()) {
-        qCritical() << "Product: Error adding product to database:" << query.lastError().text();
-        return -1;
-    }
+
 
     return true;
 
@@ -141,12 +122,9 @@ bool Product::updateValues(ProductInformation* prinfo){
 
 
 int Product::addProduct(ProductInformation* prinfo) {
-    if (!db_) {
-        qCritical() << "Product: Database connection not provided!";
-        return false;
-    }
 
-    QSqlQuery query(*db_);
+
+
     QString insertQuery = "INSERT INTO product (product_name, price, discount, quantity, type, brand, size, address_in_store, image_address) "
                           "VALUES (:product_name, :price, :discount, :quantity, :type, :brand, :size, :address_in_store, :image_address)";
 
@@ -180,7 +158,7 @@ QString Product::getProductName(int id_product) {
         return "";
     }
 
-    QSqlQuery query(*db_);
+
     QString selectQuery = "SELECT product_name FROM product WHERE id_product = :id_product";
 
     query.prepare(selectQuery);
