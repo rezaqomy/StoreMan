@@ -29,6 +29,7 @@ public:
     ProductInformation* getProduct(int id);
     bool updateValues(ProductInformation* prinfo);
     QString getProductName(int id_product);
+    QVector<ProductInformation> getAllProduct();
     Product(QSqlDatabase* db);
 };
 

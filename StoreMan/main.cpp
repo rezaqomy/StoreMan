@@ -16,10 +16,13 @@ int main(int argc, char *argv[])
     ProductInformation info;
 
 
+    QVector<ProductInformation> vec = pr.getAllProduct();
 
-    int num = pr.addProduct(&info);
+    for(int i{}; i < vec.size(); i++) {
+        qDebug() <<  vec[i].id << vec[i].productName << vec[i].price;
+    }
 
-    qDebug() << pr.getProductName(1580) << "   id : " << num;
+
     w.show();
     return a.exec();
 }

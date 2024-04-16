@@ -10,6 +10,43 @@ Product::Product(QSqlDatabase* db) : db_(db) {
     }
 }
 
+
+
+QVector<ProductInformation> Product::getAllProduct() {
+    QVector<ProductInformation> allProduct;
+    if (!db_) {
+        qCritical() << "Product: Database connection not provided!";
+        return allProduct;
+    }
+
+
+    QSqlQuery query(*db_);
+
+
+    query.exec("SELECT * FROM product");
+
+    while (query.next()) {
+        ProductInformation prinfo;
+
+        prinfo.id = query.value(0).toInt();
+        prinfo.productName = query.value(1).toString();
+        prinfo.price = query.value(2).toInt();
+        prinfo.discount = query.value(3).toInt();
+        prinfo.quantity = query.value(4).toInt();
+        prinfo.type = query.value(5).toString();
+        prinfo.brand = query.value(6).toString();
+        prinfo.size = query.value(7).toString();
+        prinfo.addressInStore = query.value(8).toString();
+        prinfo.imageAddress = query.value(9).toString();
+
+
+        allProduct.push_back(prinfo);
+    }
+
+
+    return allProduct;
+}
+
 ProductInformation* Product::getProduct(int id){
     ProductInformation prinfo;
     if (!db_) {
