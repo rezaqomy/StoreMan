@@ -1,0 +1,22 @@
+<RCC>
+    <qresource prefix="/">
+        <file>stor/add (1).png</file>
+        <file>stor/add.png</file>
+        <file>stor/boxes (1).png</file>
+        <file>stor/boxes.png</file>
+        <file>stor/circle-ellipsis-vertical (1).png</file>
+        <file>stor/circle-ellipsis-vertical.png</file>
+        <file>stor/coins (1).png</file>
+        <file>stor/coins.png</file>
+        <file>stor/exit.png</file>
+        <file>stor/shopping-cart (1).png</file>
+        <file>stor/shopping-cart.png</file>
+        <file>stor/stats (1).png</file>
+        <file>stor/add2.png</file>
+        <file>stor/boxes2.png</file>
+        <file>stor/circle-ellipsis-vertical (12).png</file>
+        <file>stor/coins2.png</file>
+        <file>stor/shopping-cart2.png</file>
+        <file>stor/stats.png</file>
+    </qresource>
+</RCC>

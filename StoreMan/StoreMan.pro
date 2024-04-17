@@ -38,4 +38,4 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 target.path = $$[QT_INSTALL_EXAMPLES]/sql/cachedtable
 
 RESOURCES += \
-    resurces.qrc
+    recurses.qrc
