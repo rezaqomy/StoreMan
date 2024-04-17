@@ -1,0 +1,20 @@
+<RCC>
+    <qresource prefix="/">
+        <file>store/calendar.png</file>
+        <file>store/discount.png</file>
+        <file>store/edc.png</file>
+        <file>store/heart.png</file>
+        <file>store/money.png</file>
+        <file>store/out-of-stock.png</file>
+        <file>store/payment.png</file>
+        <file>store/price-label.png</file>
+        <file>store/shopping-bag.png</file>
+        <file>store/shopping-cart (1).png</file>
+        <file>store/shopping-cart (2).png</file>
+        <file>store/shopping-cart (3).png</file>
+        <file>store/shopping-cart.png</file>
+        <file>store/store.png</file>
+        <file>store/verified.png</file>
+        <file>store/wallet.png</file>
+    </qresource>
+</RCC>

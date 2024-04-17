@@ -16,20 +16,26 @@ SOURCES += \
     main.cpp \
     mainwindow.cpp \
     order.cpp \
-    product.cpp
+    product.cpp \
+    showproducts.cpp
 
 HEADERS += \
     customer.h \
     database.h \
     mainwindow.h \
     order.h \
-    product.h
+    product.h \
+    showproducts.h
 
 FORMS += \
-    mainwindow.ui
+    mainwindow.ui \
+    showproducts.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 target.path = $$[QT_INSTALL_EXAMPLES]/sql/cachedtable
+
+RESOURCES += \
+    resurces.qrc
