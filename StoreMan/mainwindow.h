@@ -40,6 +40,8 @@ private slots:
 
     void on_order_button_2_clicked();
 
+    void on_add_new_product_button_clicked();
+
 private:
     QSqlDatabase* db;
     void product_clicked();

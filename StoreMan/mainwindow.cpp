@@ -21,6 +21,11 @@ MainWindow::~MainWindow()
 /* methods clicked Menu_Button */
 
 void MainWindow::product_clicked(){
+    /* TODO */
+    // ADD CARD VIEW HORIZANTALI
+    // SHOW THE IMAGE IN CARD VIEW
+
+
     Product pr(db);
     QVector<ProductInformation> prsInfo = pr.getAllProduct();
     QStandardItemModel *model = new QStandardItemModel(prsInfo.size(), 10, this);
@@ -127,5 +132,30 @@ void MainWindow::on_order_button_clicked()
 void MainWindow::on_order_button_2_clicked()
 {
     order_clicked();
+}
+
+
+void MainWindow::on_add_new_product_button_clicked()
+{
+    ProductInformation pr;
+    pr.productName = ui->product_name_lineEdit->text();
+    pr.price = ui->price_lineEdit->text().toInt();
+    pr.discount = ui->discount_lineEdit->text().toUInt();
+    pr.quantity = ui->quantity_lineEdit->text().toInt();
+    pr.type = ui->type_lineEdit->text();
+    pr.brand = ui->brand_lineEdit->text();
+    pr.size = ui->size_lineEdit->text();
+    pr.addressInStore = ui->address_in_store_lineEdit->text();
+    pr.imageAddress = ui->image_address_lineEdit->text();
+
+    Product product(db);
+    product.addProduct(&pr);
+
+    /*   TODO */
+    // DESIGN UI
+    // ADD CHECK FUNCTION
+    // ADD CONFRIM WINDOW
+    // OPEN NEW WINDOW TO SELECT IMAGE ADDRESS
+
 }
 
