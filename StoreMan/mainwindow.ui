@@ -23,85 +23,29 @@
    <string>MainWindow</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">background-color: rgb(240, 245, 249);</string>
+   <string notr="true">
+background-color: rgb(240, 245, 249);
+
+
+</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QGridLayout" name="gridLayout">
-    <item row="0" column="2">
-     <widget class="QWidget" name="widget" native="true">
-      <property name="minimumSize">
-       <size>
-        <width>500</width>
-        <height>0</height>
-       </size>
-      </property>
-      <layout class="QHBoxLayout" name="horizontalLayout_4">
-       <item>
-        <widget class="QWidget" name="widget_2" native="true">
-         <layout class="QVBoxLayout" name="verticalLayout_5">
-          <item>
-           <layout class="QHBoxLayout" name="horizontalLayout_3">
-            <item>
-             <spacer name="horizontalSpacer_2">
-              <property name="orientation">
-               <enum>Qt::Horizontal</enum>
-              </property>
-              <property name="sizeHint" stdset="0">
-               <size>
-                <width>40</width>
-                <height>20</height>
-               </size>
-              </property>
-             </spacer>
-            </item>
-            <item>
-             <layout class="QHBoxLayout" name="horizontalLayout">
-              <item>
-               <widget class="QLineEdit" name="lineEdit"/>
-              </item>
-              <item>
-               <widget class="QPushButton" name="pushButton_11">
-                <property name="text">
-                 <string>PushButton</string>
-                </property>
-               </widget>
-              </item>
-             </layout>
-            </item>
-            <item>
-             <spacer name="horizontalSpacer">
-              <property name="orientation">
-               <enum>Qt::Horizontal</enum>
-              </property>
-              <property name="sizeHint" stdset="0">
-               <size>
-                <width>208</width>
-                <height>20</height>
-               </size>
-              </property>
-             </spacer>
-            </item>
-            <item>
-             <widget class="QPushButton" name="pushButton_12">
-              <property name="text">
-               <string>PushButton</string>
-              </property>
-             </widget>
-            </item>
-           </layout>
-          </item>
-          <item>
-           <widget class="QStackedWidget" name="stackedWidget">
-            <widget class="QWidget" name="page"/>
-            <widget class="QWidget" name="page_2"/>
-           </widget>
-          </item>
-         </layout>
-        </widget>
-       </item>
-      </layout>
-     </widget>
-    </item>
+    <property name="leftMargin">
+     <number>0</number>
+    </property>
+    <property name="topMargin">
+     <number>0</number>
+    </property>
+    <property name="rightMargin">
+     <number>0</number>
+    </property>
+    <property name="bottomMargin">
+     <number>0</number>
+    </property>
+    <property name="spacing">
+     <number>0</number>
+    </property>
     <item row="0" column="0">
      <widget class="QWidget" name="icon_only_widget" native="true">
       <property name="minimumSize">
@@ -145,7 +89,7 @@ QPushButton:checked{
         <number>11</number>
        </property>
        <item>
-        <widget class="QPushButton" name="pushButton_3">
+        <widget class="QPushButton" name="menu_button">
          <property name="minimumSize">
           <size>
            <width>45</width>
@@ -157,6 +101,9 @@ QPushButton:checked{
            <width>45</width>
            <height>40</height>
           </size>
+         </property>
+         <property name="cursor">
+          <cursorShape>PointingHandCursor</cursorShape>
          </property>
          <property name="text">
           <string/>
@@ -181,7 +128,7 @@ QPushButton:checked{
         </widget>
        </item>
        <item>
-        <widget class="QPushButton" name="pushButton_15">
+        <widget class="QPushButton" name="products_button">
          <property name="minimumSize">
           <size>
            <width>45</width>
@@ -193,6 +140,9 @@ QPushButton:checked{
            <width>45</width>
            <height>40</height>
           </size>
+         </property>
+         <property name="cursor">
+          <cursorShape>PointingHandCursor</cursorShape>
          </property>
          <property name="text">
           <string/>
@@ -217,7 +167,7 @@ QPushButton:checked{
         </widget>
        </item>
        <item>
-        <widget class="QPushButton" name="pushButton_16">
+        <widget class="QPushButton" name="add_products_button">
          <property name="minimumSize">
           <size>
            <width>45</width>
@@ -229,6 +179,9 @@ QPushButton:checked{
            <width>45</width>
            <height>40</height>
           </size>
+         </property>
+         <property name="cursor">
+          <cursorShape>PointingHandCursor</cursorShape>
          </property>
          <property name="text">
           <string/>
@@ -253,7 +206,7 @@ QPushButton:checked{
         </widget>
        </item>
        <item>
-        <widget class="QPushButton" name="pushButton_17">
+        <widget class="QPushButton" name="order_button">
          <property name="minimumSize">
           <size>
            <width>45</width>
@@ -265,6 +218,9 @@ QPushButton:checked{
            <width>45</width>
            <height>40</height>
           </size>
+         </property>
+         <property name="cursor">
+          <cursorShape>PointingHandCursor</cursorShape>
          </property>
          <property name="text">
           <string/>
@@ -289,7 +245,7 @@ QPushButton:checked{
         </widget>
        </item>
        <item>
-        <widget class="QPushButton" name="pushButton_14">
+        <widget class="QPushButton" name="orders_button">
          <property name="minimumSize">
           <size>
            <width>45</width>
@@ -301,6 +257,9 @@ QPushButton:checked{
            <width>45</width>
            <height>40</height>
           </size>
+         </property>
+         <property name="cursor">
+          <cursorShape>PointingHandCursor</cursorShape>
          </property>
          <property name="text">
           <string/>
@@ -325,7 +284,7 @@ QPushButton:checked{
         </widget>
        </item>
        <item>
-        <widget class="QPushButton" name="pushButton_2">
+        <widget class="QPushButton" name="Turnover_button">
          <property name="minimumSize">
           <size>
            <width>45</width>
@@ -337,6 +296,9 @@ QPushButton:checked{
            <width>45</width>
            <height>40</height>
           </size>
+         </property>
+         <property name="cursor">
+          <cursorShape>PointingHandCursor</cursorShape>
          </property>
          <property name="text">
           <string/>
@@ -374,7 +336,7 @@ QPushButton:checked{
         </spacer>
        </item>
        <item>
-        <widget class="QPushButton" name="pushButton_5">
+        <widget class="QPushButton" name="exit_button">
          <property name="minimumSize">
           <size>
            <width>40</width>
@@ -386,6 +348,9 @@ QPushButton:checked{
            <width>40</width>
            <height>40</height>
           </size>
+         </property>
+         <property name="cursor">
+          <cursorShape>PointingHandCursor</cursorShape>
          </property>
          <property name="text">
           <string/>
@@ -400,6 +365,325 @@ QPushButton:checked{
            <height>30</height>
           </size>
          </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item row="0" column="2">
+     <widget class="QWidget" name="main_widget" native="true">
+      <property name="minimumSize">
+       <size>
+        <width>500</width>
+        <height>0</height>
+       </size>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout_4">
+       <item>
+        <widget class="QWidget" name="main_widget_2" native="true">
+         <layout class="QVBoxLayout" name="verticalLayout_5">
+          <property name="spacing">
+           <number>0</number>
+          </property>
+          <property name="leftMargin">
+           <number>0</number>
+          </property>
+          <property name="topMargin">
+           <number>0</number>
+          </property>
+          <property name="rightMargin">
+           <number>0</number>
+          </property>
+          <property name="bottomMargin">
+           <number>0</number>
+          </property>
+          <item>
+           <widget class="QStackedWidget" name="Screen_widget">
+            <property name="styleSheet">
+             <string notr="true">QPushButton{
+	color: rgb(82, 97, 107);
+	border:none;
+	text-align:left;
+}
+</string>
+            </property>
+            <property name="currentIndex">
+             <number>0</number>
+            </property>
+            <widget class="QWidget" name="Product_Veiw">
+             <property name="styleSheet">
+              <string notr="true"/>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout_3">
+              <item>
+               <layout class="QHBoxLayout" name="horizontalLayout_6">
+                <property name="spacing">
+                 <number>0</number>
+                </property>
+                <item>
+                 <widget class="QPushButton" name="all_product_button">
+                  <property name="font">
+                   <font>
+                    <pointsize>12</pointsize>
+                    <weight>75</weight>
+                    <bold>true</bold>
+                   </font>
+                  </property>
+                  <property name="cursor">
+                   <cursorShape>PointingHandCursor</cursorShape>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true"/>
+                  </property>
+                  <property name="text">
+                   <string>All Products</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <spacer name="horizontalSpacer">
+                  <property name="orientation">
+                   <enum>Qt::Horizontal</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>668</width>
+                    <height>13</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+               </layout>
+              </item>
+              <item>
+               <widget class="QWidget" name="all_product_widget" native="true">
+                <property name="minimumSize">
+                 <size>
+                  <width>775</width>
+                  <height>144</height>
+                 </size>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">background-color: rgb(192, 97, 203);</string>
+                </property>
+                <layout class="QHBoxLayout" name="horizontalLayout_5">
+                 <item>
+                  <widget class="QListView" name="all_product_listView"/>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+              <item>
+               <layout class="QHBoxLayout" name="horizontalLayout_3">
+                <item>
+                 <widget class="QPushButton" name="runining_out_button">
+                  <property name="font">
+                   <font>
+                    <pointsize>12</pointsize>
+                    <weight>75</weight>
+                    <bold>true</bold>
+                   </font>
+                  </property>
+                  <property name="cursor">
+                   <cursorShape>PointingHandCursor</cursorShape>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true"/>
+                  </property>
+                  <property name="text">
+                   <string>Running Out</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <spacer name="horizontalSpacer_3">
+                  <property name="orientation">
+                   <enum>Qt::Horizontal</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>668</width>
+                    <height>13</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+               </layout>
+              </item>
+              <item>
+               <widget class="QWidget" name="running_out_widget" native="true">
+                <property name="minimumSize">
+                 <size>
+                  <width>775</width>
+                  <height>144</height>
+                 </size>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">background-color: rgb(246, 211, 45);</string>
+                </property>
+                <layout class="QHBoxLayout" name="horizontalLayout_7">
+                 <item>
+                  <widget class="QListView" name="running_out_listView"/>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+              <item>
+               <layout class="QHBoxLayout" name="horizontalLayout">
+                <item>
+                 <widget class="QPushButton" name="finished_product_button">
+                  <property name="font">
+                   <font>
+                    <pointsize>12</pointsize>
+                    <weight>75</weight>
+                    <bold>true</bold>
+                   </font>
+                  </property>
+                  <property name="cursor">
+                   <cursorShape>PointingHandCursor</cursorShape>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true"/>
+                  </property>
+                  <property name="text">
+                   <string>Finished</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <spacer name="horizontalSpacer_4">
+                  <property name="orientation">
+                   <enum>Qt::Horizontal</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>668</width>
+                    <height>13</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+               </layout>
+              </item>
+              <item>
+               <widget class="QWidget" name="finished_prudoct_widget" native="true">
+                <property name="minimumSize">
+                 <size>
+                  <width>775</width>
+                  <height>144</height>
+                 </size>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">background-color: rgb(192, 28, 40);</string>
+                </property>
+                <layout class="QHBoxLayout" name="horizontalLayout_8">
+                 <item>
+                  <widget class="QListView" name="finished_product_listView"/>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+            <widget class="QWidget" name="add_product_view">
+             <widget class="QLabel" name="add_product_view_label">
+              <property name="geometry">
+               <rect>
+                <x>290</x>
+                <y>200</y>
+                <width>161</width>
+                <height>81</height>
+               </rect>
+              </property>
+              <property name="font">
+               <font>
+                <pointsize>20</pointsize>
+                <weight>75</weight>
+                <bold>true</bold>
+               </font>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">color: rgb(0, 0, 0);
+</string>
+              </property>
+              <property name="text">
+               <string>add product</string>
+              </property>
+             </widget>
+            </widget>
+            <widget class="QWidget" name="order_view">
+             <widget class="QLabel" name="label_3">
+              <property name="geometry">
+               <rect>
+                <x>290</x>
+                <y>220</y>
+                <width>161</width>
+                <height>81</height>
+               </rect>
+              </property>
+              <property name="font">
+               <font>
+                <pointsize>20</pointsize>
+                <weight>75</weight>
+                <bold>true</bold>
+               </font>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">color: rgb(0, 0, 0);
+</string>
+              </property>
+              <property name="text">
+               <string>order</string>
+              </property>
+             </widget>
+            </widget>
+            <widget class="QWidget" name="orders_view">
+             <widget class="QLabel" name="label_4">
+              <property name="geometry">
+               <rect>
+                <x>440</x>
+                <y>270</y>
+                <width>161</width>
+                <height>81</height>
+               </rect>
+              </property>
+              <property name="font">
+               <font>
+                <pointsize>20</pointsize>
+                <weight>75</weight>
+                <bold>true</bold>
+               </font>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">color: rgb(0, 0, 0);
+</string>
+              </property>
+              <property name="text">
+               <string>orders</string>
+              </property>
+             </widget>
+            </widget>
+            <widget class="QWidget" name="Turnover_view">
+             <widget class="QLabel" name="label">
+              <property name="geometry">
+               <rect>
+                <x>370</x>
+                <y>170</y>
+                <width>66</width>
+                <height>17</height>
+               </rect>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">color: rgb(0, 0, 0);</string>
+              </property>
+              <property name="text">
+               <string>turnover</string>
+              </property>
+             </widget>
+            </widget>
+           </widget>
+          </item>
+         </layout>
         </widget>
        </item>
       </layout>
@@ -455,7 +739,7 @@ QPushButton:checked{
        <item>
         <layout class="QHBoxLayout" name="horizontalLayout_2">
          <item>
-          <widget class="QPushButton" name="pushButton_4">
+          <widget class="QPushButton" name="menu_button_2">
            <property name="minimumSize">
             <size>
              <width>45</width>
@@ -467,6 +751,9 @@ QPushButton:checked{
              <width>45</width>
              <height>40</height>
             </size>
+           </property>
+           <property name="cursor">
+            <cursorShape>PointingHandCursor</cursorShape>
            </property>
            <property name="styleSheet">
             <string notr="true">border:none;
@@ -498,7 +785,7 @@ QPushButton:checked{
           </widget>
          </item>
          <item>
-          <widget class="QLabel" name="label_3">
+          <widget class="QLabel" name="store_man_label">
            <property name="font">
             <font>
              <pointsize>12</pointsize>
@@ -517,7 +804,7 @@ QPushButton:checked{
         </layout>
        </item>
        <item>
-        <widget class="QPushButton" name="pushButton_6">
+        <widget class="QPushButton" name="products_button_2">
          <property name="minimumSize">
           <size>
            <width>0</width>
@@ -534,6 +821,9 @@ QPushButton:checked{
           <font>
            <pointsize>12</pointsize>
           </font>
+         </property>
+         <property name="cursor">
+          <cursorShape>PointingHandCursor</cursorShape>
          </property>
          <property name="text">
           <string>Products</string>
@@ -558,7 +848,7 @@ QPushButton:checked{
         </widget>
        </item>
        <item>
-        <widget class="QPushButton" name="pushButton_7">
+        <widget class="QPushButton" name="add_product_button_2">
          <property name="minimumSize">
           <size>
            <width>0</width>
@@ -575,6 +865,9 @@ QPushButton:checked{
           <font>
            <pointsize>12</pointsize>
           </font>
+         </property>
+         <property name="cursor">
+          <cursorShape>PointingHandCursor</cursorShape>
          </property>
          <property name="text">
           <string>Add Product</string>
@@ -599,7 +892,7 @@ QPushButton:checked{
         </widget>
        </item>
        <item>
-        <widget class="QPushButton" name="pushButton_8">
+        <widget class="QPushButton" name="order_button_2">
          <property name="minimumSize">
           <size>
            <width>0</width>
@@ -616,6 +909,9 @@ QPushButton:checked{
           <font>
            <pointsize>12</pointsize>
           </font>
+         </property>
+         <property name="cursor">
+          <cursorShape>PointingHandCursor</cursorShape>
          </property>
          <property name="text">
           <string>Order</string>
@@ -640,7 +936,7 @@ QPushButton:checked{
         </widget>
        </item>
        <item>
-        <widget class="QPushButton" name="pushButton_9">
+        <widget class="QPushButton" name="orders_button_2">
          <property name="minimumSize">
           <size>
            <width>0</width>
@@ -657,6 +953,9 @@ QPushButton:checked{
           <font>
            <pointsize>12</pointsize>
           </font>
+         </property>
+         <property name="cursor">
+          <cursorShape>PointingHandCursor</cursorShape>
          </property>
          <property name="text">
           <string>Orders</string>
@@ -681,7 +980,7 @@ QPushButton:checked{
         </widget>
        </item>
        <item>
-        <widget class="QPushButton" name="pushButton">
+        <widget class="QPushButton" name="Turnover_button_2">
          <property name="minimumSize">
           <size>
            <width>0</width>
@@ -698,6 +997,9 @@ QPushButton:checked{
           <font>
            <pointsize>12</pointsize>
           </font>
+         </property>
+         <property name="cursor">
+          <cursorShape>PointingHandCursor</cursorShape>
          </property>
          <property name="text">
           <string>Turnover</string>
@@ -735,7 +1037,7 @@ QPushButton:checked{
         </spacer>
        </item>
        <item>
-        <widget class="QPushButton" name="pushButton_10">
+        <widget class="QPushButton" name="exit_button_2">
          <property name="minimumSize">
           <size>
            <width>0</width>
@@ -747,6 +1049,9 @@ QPushButton:checked{
            <width>16777215</width>
            <height>40</height>
           </size>
+         </property>
+         <property name="cursor">
+          <cursorShape>PointingHandCursor</cursorShape>
          </property>
          <property name="text">
           <string>EXIT</string>
@@ -770,28 +1075,25 @@ QPushButton:checked{
   </widget>
  </widget>
  <tabstops>
-  <tabstop>pushButton_4</tabstop>
-  <tabstop>pushButton_7</tabstop>
-  <tabstop>pushButton_8</tabstop>
-  <tabstop>pushButton_9</tabstop>
-  <tabstop>pushButton</tabstop>
-  <tabstop>pushButton_14</tabstop>
-  <tabstop>pushButton_2</tabstop>
-  <tabstop>pushButton_15</tabstop>
-  <tabstop>pushButton_16</tabstop>
-  <tabstop>pushButton_17</tabstop>
-  <tabstop>pushButton_6</tabstop>
-  <tabstop>pushButton_5</tabstop>
-  <tabstop>lineEdit</tabstop>
-  <tabstop>pushButton_11</tabstop>
-  <tabstop>pushButton_12</tabstop>
+  <tabstop>menu_button_2</tabstop>
+  <tabstop>add_product_button_2</tabstop>
+  <tabstop>order_button_2</tabstop>
+  <tabstop>orders_button_2</tabstop>
+  <tabstop>Turnover_button_2</tabstop>
+  <tabstop>orders_button</tabstop>
+  <tabstop>Turnover_button</tabstop>
+  <tabstop>products_button</tabstop>
+  <tabstop>add_products_button</tabstop>
+  <tabstop>order_button</tabstop>
+  <tabstop>products_button_2</tabstop>
+  <tabstop>exit_button</tabstop>
  </tabstops>
  <resources>
   <include location="recurses.qrc"/>
  </resources>
  <connections>
   <connection>
-   <sender>pushButton_3</sender>
+   <sender>menu_button</sender>
    <signal>clicked(bool)</signal>
    <receiver>icon_name_widget</receiver>
    <slot>setVisible(bool)</slot>
@@ -807,7 +1109,7 @@ QPushButton:checked{
    </hints>
   </connection>
   <connection>
-   <sender>pushButton_3</sender>
+   <sender>menu_button</sender>
    <signal>clicked(bool)</signal>
    <receiver>icon_only_widget</receiver>
    <slot>setHidden(bool)</slot>
@@ -823,7 +1125,7 @@ QPushButton:checked{
    </hints>
   </connection>
   <connection>
-   <sender>pushButton_4</sender>
+   <sender>menu_button_2</sender>
    <signal>clicked(bool)</signal>
    <receiver>icon_only_widget</receiver>
    <slot>setVisible(bool)</slot>
@@ -833,13 +1135,13 @@ QPushButton:checked{
      <y>23</y>
     </hint>
     <hint type="destinationlabel">
-     <x>72</x>
+     <x>63</x>
      <y>151</y>
     </hint>
    </hints>
   </connection>
   <connection>
-   <sender>pushButton_4</sender>
+   <sender>menu_button_2</sender>
    <signal>clicked(bool)</signal>
    <receiver>icon_name_widget</receiver>
    <slot>setHidden(bool)</slot>
@@ -849,15 +1151,15 @@ QPushButton:checked{
      <y>47</y>
     </hint>
     <hint type="destinationlabel">
-     <x>229</x>
+     <x>214</x>
      <y>178</y>
     </hint>
    </hints>
   </connection>
   <connection>
-   <sender>pushButton_2</sender>
+   <sender>Turnover_button</sender>
    <signal>toggled(bool)</signal>
-   <receiver>pushButton</receiver>
+   <receiver>Turnover_button_2</receiver>
    <slot>setChecked(bool)</slot>
    <hints>
     <hint type="sourcelabel">
@@ -871,9 +1173,9 @@ QPushButton:checked{
    </hints>
   </connection>
   <connection>
-   <sender>pushButton_14</sender>
+   <sender>orders_button</sender>
    <signal>toggled(bool)</signal>
-   <receiver>pushButton_9</receiver>
+   <receiver>orders_button_2</receiver>
    <slot>setChecked(bool)</slot>
    <hints>
     <hint type="sourcelabel">
@@ -887,9 +1189,9 @@ QPushButton:checked{
    </hints>
   </connection>
   <connection>
-   <sender>pushButton_17</sender>
+   <sender>order_button</sender>
    <signal>toggled(bool)</signal>
-   <receiver>pushButton_8</receiver>
+   <receiver>order_button_2</receiver>
    <slot>setChecked(bool)</slot>
    <hints>
     <hint type="sourcelabel">
@@ -903,9 +1205,9 @@ QPushButton:checked{
    </hints>
   </connection>
   <connection>
-   <sender>pushButton_16</sender>
+   <sender>add_products_button</sender>
    <signal>toggled(bool)</signal>
-   <receiver>pushButton_7</receiver>
+   <receiver>add_product_button_2</receiver>
    <slot>setChecked(bool)</slot>
    <hints>
     <hint type="sourcelabel">
@@ -919,9 +1221,9 @@ QPushButton:checked{
    </hints>
   </connection>
   <connection>
-   <sender>pushButton_15</sender>
+   <sender>products_button</sender>
    <signal>toggled(bool)</signal>
-   <receiver>pushButton_6</receiver>
+   <receiver>products_button_2</receiver>
    <slot>setChecked(bool)</slot>
    <hints>
     <hint type="sourcelabel">
@@ -935,9 +1237,9 @@ QPushButton:checked{
    </hints>
   </connection>
   <connection>
-   <sender>pushButton_3</sender>
+   <sender>menu_button</sender>
    <signal>toggled(bool)</signal>
-   <receiver>pushButton_4</receiver>
+   <receiver>menu_button_2</receiver>
    <slot>setChecked(bool)</slot>
    <hints>
     <hint type="sourcelabel">
@@ -951,9 +1253,9 @@ QPushButton:checked{
    </hints>
   </connection>
   <connection>
-   <sender>pushButton_4</sender>
+   <sender>menu_button_2</sender>
    <signal>toggled(bool)</signal>
-   <receiver>pushButton_3</receiver>
+   <receiver>menu_button</receiver>
    <slot>setChecked(bool)</slot>
    <hints>
     <hint type="sourcelabel">
@@ -967,9 +1269,9 @@ QPushButton:checked{
    </hints>
   </connection>
   <connection>
-   <sender>pushButton_6</sender>
+   <sender>products_button_2</sender>
    <signal>toggled(bool)</signal>
-   <receiver>pushButton_15</receiver>
+   <receiver>products_button</receiver>
    <slot>setChecked(bool)</slot>
    <hints>
     <hint type="sourcelabel">
@@ -983,9 +1285,9 @@ QPushButton:checked{
    </hints>
   </connection>
   <connection>
-   <sender>pushButton_7</sender>
+   <sender>add_product_button_2</sender>
    <signal>toggled(bool)</signal>
-   <receiver>pushButton_16</receiver>
+   <receiver>add_products_button</receiver>
    <slot>setChecked(bool)</slot>
    <hints>
     <hint type="sourcelabel">
@@ -999,9 +1301,9 @@ QPushButton:checked{
    </hints>
   </connection>
   <connection>
-   <sender>pushButton_8</sender>
+   <sender>order_button_2</sender>
    <signal>toggled(bool)</signal>
-   <receiver>pushButton_17</receiver>
+   <receiver>order_button</receiver>
    <slot>setChecked(bool)</slot>
    <hints>
     <hint type="sourcelabel">
@@ -1015,9 +1317,9 @@ QPushButton:checked{
    </hints>
   </connection>
   <connection>
-   <sender>pushButton_9</sender>
+   <sender>orders_button_2</sender>
    <signal>toggled(bool)</signal>
-   <receiver>pushButton_14</receiver>
+   <receiver>orders_button</receiver>
    <slot>setChecked(bool)</slot>
    <hints>
     <hint type="sourcelabel">
@@ -1031,9 +1333,9 @@ QPushButton:checked{
    </hints>
   </connection>
   <connection>
-   <sender>pushButton</sender>
+   <sender>Turnover_button_2</sender>
    <signal>toggled(bool)</signal>
-   <receiver>pushButton_2</receiver>
+   <receiver>Turnover_button</receiver>
    <slot>setChecked(bool)</slot>
    <hints>
     <hint type="sourcelabel">

@@ -9,7 +9,7 @@ DataBase::DataBase(QSqlDatabase* db){
 }
 
 DataBase::~DataBase() {
-    db->close(); // Close connection in destructor
+    db->close();
 }
 
 bool DataBase::openConnection() {

@@ -12,12 +12,8 @@ Product::Product(QSqlDatabase* db) : db_(db) {
 
 
 
-QVector<ProductInformation> Product::getAllProduct() {
-    QVector<ProductInformation> allProduct;
-
-
-    query.exec("SELECT * FROM product");
-
+void Product::queryToVector(QVector<ProductInformation>* allProduct)
+{
     while (query.next()) {
         ProductInformation prinfo;
 
@@ -33,8 +29,115 @@ QVector<ProductInformation> Product::getAllProduct() {
         prinfo.imageAddress = query.value(9).toString();
 
 
-        allProduct.push_back(prinfo);
+        allProduct->push_back(prinfo);
     }
+}
+
+QVector<ProductInformation> Product::getAllProduct() {
+    QVector<ProductInformation> allProduct;
+
+
+    query.exec("SELECT * FROM product");
+
+    queryToVector(&allProduct);
+
+
+    return allProduct;
+}
+
+QVector<ProductInformation> Product::getAllProduct(QString sortBy)
+{
+    QVector<ProductInformation> allProduct;
+    QString selectQuery = QString("SELECT * FROM product ORDER BY %1").arg(sortBy);
+
+
+    query.exec(selectQuery);
+
+    queryToVector(&allProduct);
+
+
+    return allProduct;
+}
+
+QVector<ProductInformation> Product::getAllProduct(QString sortBy, int limit)
+{
+    QVector<ProductInformation> allProduct;
+    QString selectQuery = QString("SELECT * FROM product ORDER BY %1 LIMIT %2").arg(sortBy).arg(limit);
+
+
+    query.exec(selectQuery);
+
+    queryToVector(&allProduct);
+
+
+    return allProduct;
+}
+
+QVector<ProductInformation> Product::getAllProduct(QString sortBy, int limit, int offset)
+{
+    QVector<ProductInformation> allProduct;
+    QString selectQuery = QString("SELECT * FROM product ORDER BY %1 LIMIT %2 OFFSET %3").arg(sortBy).arg(limit).arg(offset);
+
+
+    query.exec(selectQuery);
+
+    queryToVector(&allProduct);
+
+
+    return allProduct;
+}
+
+QVector<ProductInformation> Product::getAllProduct(QString where, QString sortBy)
+{
+    QVector<ProductInformation> allProduct;
+    QString selectQuery = QString("SELECT * FROM product WHERE %1 ORDER BY %2").arg(where).arg(sortBy);
+
+
+    query.exec(selectQuery);
+
+    queryToVector(&allProduct);
+
+
+    return allProduct;
+}
+
+QVector<ProductInformation> Product::getAllProduct(QString where, QString sortBy, int limit)
+{
+    QVector<ProductInformation> allProduct;
+    QString selectQuery = QString("SELECT * FROM product WHERE %1 ORDER BY %2 LIMIT %3").arg(where).arg(sortBy).arg(limit);
+
+
+    query.exec(selectQuery);
+
+    queryToVector(&allProduct);
+
+
+    return allProduct;
+}
+
+QVector<ProductInformation> Product::getAllProduct(QString where, QString sortBy, int limit, int offset)
+{
+    QVector<ProductInformation> allProduct;
+    QString selectQuery = QString("SELECT * FROM product WHERE %1 ORDER BY %2 LIMIT %3 OFFSET %4").arg(where).arg(sortBy).arg(limit).arg(offset);
+
+
+    query.exec(selectQuery);
+
+    queryToVector(&allProduct);
+
+
+    return allProduct;
+}
+
+QVector<ProductInformation> Product::getAllProduct(int limit, int offset)
+{
+    QVector<ProductInformation> allProduct;
+    QString selectQuery = QString("SELECT * FROM product LIMIT %1 OFFSET %2").arg(limit).arg(offset);
+
+
+    query.exec(selectQuery);
+
+    queryToVector(&allProduct);
 
 
     return allProduct;
@@ -47,7 +150,7 @@ ProductInformation* Product::getProduct(int id){
 
 
     QString idStr = QString::number(id);
-    QString queryStr = "SELECT id FROM mytable WHERE id = :id";
+    QString queryStr = "SELECT id FROM product WHERE id = :id";
     query.prepare(queryStr);
     query.bindValue(":id", idStr);
 
@@ -150,28 +253,4 @@ int Product::addProduct(ProductInformation* prinfo) {
     }
 
     return prinfo->id;
-}
-
-QString Product::getProductName(int id_product) {
-    if (!db_) {
-        qCritical() << "Product: Database connection not provided!";
-        return "";
-    }
-
-
-    QString selectQuery = "SELECT product_name FROM product WHERE id_product = :id_product";
-
-    query.prepare(selectQuery);
-    query.bindValue(":id_product", id_product);
-
-    if (!query.exec()) {
-        qCritical() << "Product: Error getting product name:" << query.lastError().text();
-        return "";
-    }
-
-    if (query.next()) {
-        return query.value(0).toString();
-    } else {
-        return "";
-    }
 }
