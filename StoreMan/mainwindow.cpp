@@ -1,6 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "showproducts.h"
+#include "cardview.h"
 #include "product.h"
 
 MainWindow::MainWindow(QSqlDatabase* db, QWidget *parent)
@@ -28,30 +29,19 @@ void MainWindow::product_clicked(){
 
     Product pr(db);
     QVector<ProductInformation> prsInfo = pr.getAllProduct();
-    QStandardItemModel *model = new QStandardItemModel(prsInfo.size(), 10, this);
+    QGridLayout* gridLayout = new QGridLayout();
+    QScrollArea* scrollArea = new QScrollArea();
+    QWidget* window = new QWidget();
 
+    window->setWindowTitle("Product List");
     for (int i = 0; i < prsInfo.size(); ++i) {
-        model->setData(model->index(i, 0), QString("Item name = %1,price = %2, id = %3, quantity = %4").arg(prsInfo[i].productName).arg(prsInfo[i].price).arg(prsInfo[i].id).arg(prsInfo[i].quantity));
+        CardView* cardView = new CardView(prsInfo[i].productName, "stor/stats.png", prsInfo[i].price);
+        // cardView->setStyleSheet("border-radius:40.px; background-color: rgb(201, 214, 223);");
+        gridLayout->addWidget(cardView, i / 3, i % 3);
+        qDebug() << prsInfo[i].productName << prsInfo[i].price;
     }
+    ui->all_product_widget->setLayout(gridLayout);
 
-    ui->all_product_listView->setModel(model);
-    prsInfo = pr.getAllProduct("quantity < 11 AND quantity != 0", "quantity DESC");
-    model = new QStandardItemModel(prsInfo.size(), 10, this);
-
-    for (int i = 0; i < prsInfo.size(); ++i) {
-        model->setData(model->index(i, 0), QString("Item name = %1,price = %2, id = %3, quantity = %4").arg(prsInfo[i].productName).arg(prsInfo[i].price).arg(prsInfo[i].id).arg(prsInfo[i].quantity));
-    }
-
-    ui->running_out_listView->setModel(model);
-
-    prsInfo = pr.getAllProduct("quantity = 0", "quantity DESC");
-    model = new QStandardItemModel(prsInfo.size(), 10, this);
-
-    for (int i = 0; i < prsInfo.size(); ++i) {
-        model->setData(model->index(i, 0), QString("Item name = %1,price = %2, id = %3, quantity = %4").arg(prsInfo[i].productName).arg(prsInfo[i].price).arg(prsInfo[i].id).arg(prsInfo[i].quantity));
-    }
-
-    ui->finished_product_listView->setModel(model);
 
     ui->Screen_widget->setCurrentIndex(0);
 }

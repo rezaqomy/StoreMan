@@ -16,6 +16,7 @@ public:
     explicit ShowProducts(QWidget *parent = nullptr);
     ~ShowProducts();
 
+
 private:
     Ui::ShowProducts *ui;
 };
