@@ -7,6 +7,7 @@
 #include <QGridLayout>
 #include <QHBoxLayout>
 #include <QPushButton>
+#include <QLayout>
 #include <QLineEdit>
 #include <product.h>
 #include <order.h>
@@ -14,7 +15,7 @@
 class CardView : public QWidget
 {
 public:
-    CardView(ProductInformation* productInfo, OrderInformation* orderInfo);
+    CardView(ProductInformation* productInfo, OrderInformation* orderInfo, QSqlDatabase* db);
 
 private:
     QLabel* nameLabel;
@@ -23,7 +24,8 @@ private:
     QLabel* discountLabel;
     QLabel* finalPrice;
     QLabel* quantityLabel;
-    QPushButton* deleteLabel;
+    QPushButton* deleteButton;
+    QSqlDatabase* db;
     QGridLayout* grideLayout;
     QGridLayout* grideLayoutbuy;
     QWidget* widgetBuy;
@@ -36,6 +38,7 @@ private:
     ProductInformation* productInfo;
     int indexProduct;
     void on_addToCartButton_clicked();
+    void deleteProductButton();
     void on_increase_clicked();
     void lineEditTextChanged();
     void on_decrease_clicked();

@@ -782,7 +782,9 @@ QPushButton:checked{
           <item>
            <widget class="QStackedWidget" name="Screen_widget">
             <property name="styleSheet">
-             <string notr="true">
+             <string notr="true">QCheckBox{
+	color:rgb(30, 32, 34)
+}
 QLabel{
 	text-align:center;
 	color:rgb(30, 32, 34);
@@ -798,7 +800,7 @@ QLineEdit{
 </string>
             </property>
             <property name="currentIndex">
-             <number>0</number>
+             <number>2</number>
             </property>
             <widget class="QWidget" name="Product_Veiw">
              <property name="styleSheet">
@@ -859,8 +861,8 @@ QLineEdit{
                   <rect>
                    <x>0</x>
                    <y>0</y>
-                   <width>773</width>
-                   <height>561</height>
+                   <width>66</width>
+                   <height>28</height>
                   </rect>
                  </property>
                  <layout class="QVBoxLayout" name="verticalLayout_4">
@@ -1167,30 +1169,458 @@ border-radius:20px;
              </layout>
             </widget>
             <widget class="QWidget" name="order_view">
-             <widget class="QLabel" name="label_3">
-              <property name="geometry">
-               <rect>
-                <x>290</x>
-                <y>220</y>
-                <width>161</width>
-                <height>81</height>
-               </rect>
-              </property>
-              <property name="font">
-               <font>
-                <pointsize>20</pointsize>
-                <weight>75</weight>
-                <bold>true</bold>
-               </font>
-              </property>
-              <property name="styleSheet">
-               <string notr="true">color: rgb(0, 0, 0);
-</string>
-              </property>
-              <property name="text">
-               <string>order</string>
-              </property>
-             </widget>
+             <layout class="QHBoxLayout" name="horizontalLayout_19">
+              <item>
+               <widget class="QWidget" name="widget" native="true">
+                <property name="maximumSize">
+                 <size>
+                  <width>277</width>
+                  <height>16777215</height>
+                 </size>
+                </property>
+                <layout class="QVBoxLayout" name="verticalLayout_16">
+                 <item>
+                  <widget class="QWidget" name="widget_4" native="true">
+                   <property name="styleSheet">
+                    <string notr="true"/>
+                   </property>
+                   <layout class="QVBoxLayout" name="verticalLayout_12">
+                    <item>
+                     <layout class="QHBoxLayout" name="horizontalLayout_8">
+                      <item>
+                       <spacer name="horizontalSpacer_4">
+                        <property name="orientation">
+                         <enum>Qt::Horizontal</enum>
+                        </property>
+                        <property name="sizeHint" stdset="0">
+                         <size>
+                          <width>13</width>
+                          <height>20</height>
+                         </size>
+                        </property>
+                       </spacer>
+                      </item>
+                      <item>
+                       <widget class="QLabel" name="label_3">
+                        <property name="maximumSize">
+                         <size>
+                          <width>165</width>
+                          <height>21</height>
+                         </size>
+                        </property>
+                        <property name="text">
+                         <string>customer information</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item>
+                       <spacer name="horizontalSpacer_5">
+                        <property name="orientation">
+                         <enum>Qt::Horizontal</enum>
+                        </property>
+                        <property name="sizeHint" stdset="0">
+                         <size>
+                          <width>13</width>
+                          <height>20</height>
+                         </size>
+                        </property>
+                       </spacer>
+                      </item>
+                     </layout>
+                    </item>
+                    <item>
+                     <widget class="QCheckBox" name="checkBox">
+                      <property name="text">
+                       <string>new customer</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QWidget" name="form_customer_id" native="true">
+                      <widget class="QWidget" name="layoutWidget_4">
+                       <property name="geometry">
+                        <rect>
+                         <x>20</x>
+                         <y>20</y>
+                         <width>176</width>
+                         <height>55</height>
+                        </rect>
+                       </property>
+                       <layout class="QVBoxLayout" name="verticalLayout_13">
+                        <item>
+                         <layout class="QHBoxLayout" name="horizontalLayout_13">
+                          <item>
+                           <widget class="QLabel" name="label_8">
+                            <property name="text">
+                             <string>Customer ID:</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item>
+                           <spacer name="horizontalSpacer_8">
+                            <property name="orientation">
+                             <enum>Qt::Horizontal</enum>
+                            </property>
+                            <property name="sizeHint" stdset="0">
+                             <size>
+                              <width>40</width>
+                              <height>20</height>
+                             </size>
+                            </property>
+                           </spacer>
+                          </item>
+                         </layout>
+                        </item>
+                        <item>
+                         <widget class="QLineEdit" name="lineEdit_5"/>
+                        </item>
+                       </layout>
+                      </widget>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QWidget" name="form_customer_info" native="true">
+                      <layout class="QVBoxLayout" name="verticalLayout_7">
+                       <property name="spacing">
+                        <number>0</number>
+                       </property>
+                       <property name="leftMargin">
+                        <number>0</number>
+                       </property>
+                       <property name="topMargin">
+                        <number>0</number>
+                       </property>
+                       <property name="rightMargin">
+                        <number>0</number>
+                       </property>
+                       <property name="bottomMargin">
+                        <number>0</number>
+                       </property>
+                       <item>
+                        <layout class="QVBoxLayout" name="verticalLayout_8">
+                         <item>
+                          <layout class="QHBoxLayout" name="horizontalLayout">
+                           <item>
+                            <widget class="QLabel" name="label_2">
+                             <property name="maximumSize">
+                              <size>
+                               <width>16777215</width>
+                               <height>25</height>
+                              </size>
+                             </property>
+                             <property name="text">
+                              <string>Customer Name:</string>
+                             </property>
+                            </widget>
+                           </item>
+                           <item>
+                            <spacer name="horizontalSpacer_2">
+                             <property name="orientation">
+                              <enum>Qt::Horizontal</enum>
+                             </property>
+                             <property name="sizeHint" stdset="0">
+                              <size>
+                               <width>40</width>
+                               <height>20</height>
+                              </size>
+                             </property>
+                            </spacer>
+                           </item>
+                          </layout>
+                         </item>
+                         <item>
+                          <widget class="QLineEdit" name="customer_line_edit"/>
+                         </item>
+                        </layout>
+                       </item>
+                       <item>
+                        <layout class="QVBoxLayout" name="verticalLayout_9">
+                         <item>
+                          <layout class="QHBoxLayout" name="horizontalLayout_3">
+                           <item>
+                            <widget class="QLabel" name="label_5">
+                             <property name="maximumSize">
+                              <size>
+                               <width>16777215</width>
+                               <height>25</height>
+                              </size>
+                             </property>
+                             <property name="text">
+                              <string>Customer LastName:</string>
+                             </property>
+                            </widget>
+                           </item>
+                           <item>
+                            <spacer name="horizontalSpacer_3">
+                             <property name="orientation">
+                              <enum>Qt::Horizontal</enum>
+                             </property>
+                             <property name="sizeHint" stdset="0">
+                              <size>
+                               <width>40</width>
+                               <height>20</height>
+                              </size>
+                             </property>
+                            </spacer>
+                           </item>
+                          </layout>
+                         </item>
+                         <item>
+                          <widget class="QLineEdit" name="customer_last_name_line_edit"/>
+                         </item>
+                         <item>
+                          <layout class="QVBoxLayout" name="verticalLayout_10">
+                           <item>
+                            <layout class="QHBoxLayout" name="horizontalLayout_5">
+                             <item>
+                              <widget class="QLabel" name="label_6">
+                               <property name="maximumSize">
+                                <size>
+                                 <width>16777215</width>
+                                 <height>25</height>
+                                </size>
+                               </property>
+                               <property name="text">
+                                <string>Customer PhoneNumber:</string>
+                               </property>
+                              </widget>
+                             </item>
+                             <item>
+                              <spacer name="horizontalSpacer_6">
+                               <property name="orientation">
+                                <enum>Qt::Horizontal</enum>
+                               </property>
+                               <property name="sizeHint" stdset="0">
+                                <size>
+                                 <width>40</width>
+                                 <height>20</height>
+                                </size>
+                               </property>
+                              </spacer>
+                             </item>
+                            </layout>
+                           </item>
+                           <item>
+                            <widget class="QLineEdit" name="customer_phone_number_line_edit"/>
+                           </item>
+                          </layout>
+                         </item>
+                        </layout>
+                       </item>
+                       <item>
+                        <layout class="QVBoxLayout" name="verticalLayout_11">
+                         <item>
+                          <layout class="QHBoxLayout" name="horizontalLayout_7">
+                           <item>
+                            <widget class="QLabel" name="label_7">
+                             <property name="maximumSize">
+                              <size>
+                               <width>16777215</width>
+                               <height>25</height>
+                              </size>
+                             </property>
+                             <property name="text">
+                              <string>Customer Address:</string>
+                             </property>
+                            </widget>
+                           </item>
+                           <item>
+                            <spacer name="horizontalSpacer_7">
+                             <property name="orientation">
+                              <enum>Qt::Horizontal</enum>
+                             </property>
+                             <property name="sizeHint" stdset="0">
+                              <size>
+                               <width>40</width>
+                               <height>20</height>
+                              </size>
+                             </property>
+                            </spacer>
+                           </item>
+                          </layout>
+                         </item>
+                         <item>
+                          <widget class="QLineEdit" name="custoemr_address_line_edit"/>
+                         </item>
+                        </layout>
+                       </item>
+                      </layout>
+                     </widget>
+                    </item>
+                   </layout>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QWidget" name="widget_3" native="true">
+                   <layout class="QVBoxLayout" name="verticalLayout_15">
+                    <item>
+                     <layout class="QVBoxLayout" name="verticalLayout_14">
+                      <item>
+                       <layout class="QHBoxLayout" name="horizontalLayout_17">
+                        <item>
+                         <widget class="QLabel" name="label_9">
+                          <property name="maximumSize">
+                           <size>
+                            <width>16777215</width>
+                            <height>38</height>
+                           </size>
+                          </property>
+                          <property name="text">
+                           <string>Discount(%):</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item>
+                         <spacer name="horizontalSpacer_9">
+                          <property name="orientation">
+                           <enum>Qt::Horizontal</enum>
+                          </property>
+                          <property name="sizeHint" stdset="0">
+                           <size>
+                            <width>40</width>
+                            <height>20</height>
+                           </size>
+                          </property>
+                         </spacer>
+                        </item>
+                       </layout>
+                      </item>
+                      <item>
+                       <widget class="QLineEdit" name="discount_line_edit"/>
+                      </item>
+                     </layout>
+                    </item>
+                    <item>
+                     <widget class="QLabel" name="sum_price_label">
+                      <property name="minimumSize">
+                       <size>
+                        <width>0</width>
+                        <height>38</height>
+                       </size>
+                      </property>
+                      <property name="maximumSize">
+                       <size>
+                        <width>16777215</width>
+                        <height>38</height>
+                       </size>
+                      </property>
+                      <property name="text">
+                       <string>sum price:</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QLabel" name="discount_order_label">
+                      <property name="minimumSize">
+                       <size>
+                        <width>0</width>
+                        <height>38</height>
+                       </size>
+                      </property>
+                      <property name="maximumSize">
+                       <size>
+                        <width>16777215</width>
+                        <height>38</height>
+                       </size>
+                      </property>
+                      <property name="text">
+                       <string>discount:</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QLabel" name="toutal_price_label">
+                      <property name="minimumSize">
+                       <size>
+                        <width>0</width>
+                        <height>38</height>
+                       </size>
+                      </property>
+                      <property name="maximumSize">
+                       <size>
+                        <width>16777215</width>
+                        <height>38</height>
+                       </size>
+                      </property>
+                      <property name="text">
+                       <string>toutal price:</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <layout class="QHBoxLayout" name="horizontalLayout_18">
+                      <item>
+                       <spacer name="horizontalSpacer_10">
+                        <property name="orientation">
+                         <enum>Qt::Horizontal</enum>
+                        </property>
+                        <property name="sizeHint" stdset="0">
+                         <size>
+                          <width>40</width>
+                          <height>20</height>
+                         </size>
+                        </property>
+                       </spacer>
+                      </item>
+                      <item>
+                       <widget class="QPushButton" name="pushButton">
+                        <property name="text">
+                         <string>confrime</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item>
+                       <spacer name="horizontalSpacer_11">
+                        <property name="orientation">
+                         <enum>Qt::Horizontal</enum>
+                        </property>
+                        <property name="sizeHint" stdset="0">
+                         <size>
+                          <width>40</width>
+                          <height>20</height>
+                         </size>
+                        </property>
+                       </spacer>
+                      </item>
+                     </layout>
+                    </item>
+                    <item>
+                     <spacer name="verticalSpacer_3">
+                      <property name="orientation">
+                       <enum>Qt::Vertical</enum>
+                      </property>
+                      <property name="sizeHint" stdset="0">
+                       <size>
+                        <width>20</width>
+                        <height>40</height>
+                       </size>
+                      </property>
+                     </spacer>
+                    </item>
+                   </layout>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+              <item>
+               <widget class="QScrollArea" name="show_order_product">
+                <property name="widgetResizable">
+                 <bool>true</bool>
+                </property>
+                <widget class="QWidget" name="scrollAreaWidgetContents_2">
+                 <property name="geometry">
+                  <rect>
+                   <x>0</x>
+                   <y>0</y>
+                   <width>490</width>
+                   <height>588</height>
+                  </rect>
+                 </property>
+                </widget>
+               </widget>
+              </item>
+             </layout>
             </widget>
             <widget class="QWidget" name="orders_view">
              <widget class="QLabel" name="label_4">

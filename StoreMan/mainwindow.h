@@ -43,6 +43,8 @@ private slots:
 
     void on_add_new_product_button_clicked();
 
+    void on_checkBox_stateChanged(int arg1);
+
 private:
     QSqlDatabase* db;
     void product_clicked();

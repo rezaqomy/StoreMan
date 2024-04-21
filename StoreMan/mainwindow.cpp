@@ -10,7 +10,7 @@ MainWindow::MainWindow(QSqlDatabase* db, QWidget *parent)
 {
     this->db = db;
     ui->setupUi(this);
-
+    ui->form_customer_info->hide();
     ui->icon_name_widget->hide();
     product_clicked();
 }
@@ -37,7 +37,7 @@ void MainWindow::product_clicked(){
 
     window->setWindowTitle("Product List");
     for (int i = 0; i < prsInfo.size(); ++i) {
-        CardView* cardView = new CardView(&prsInfo[i], order);
+        CardView* cardView = new CardView(&prsInfo[i], order, db);
         // cardView->setStyleSheet("border-radius:40.px; background-color: rgb(201, 214, 223);");
         gridLayout->addWidget(cardView, i / 3, i % 3);
         qDebug() << prsInfo[i].productName << prsInfo[i].imageAddress;
@@ -150,5 +150,17 @@ void MainWindow::on_add_new_product_button_clicked()
     // ADD CONFRIM WINDOW
     // OPEN NEW WINDOW TO SELECT IMAGE ADDRESS
 
+}
+
+
+void MainWindow::on_checkBox_stateChanged(int arg1)
+{
+    if (arg1 == 2){
+        ui->form_customer_id->hide();
+        ui->form_customer_info->show();
+    } else if (arg1 == 0){
+        ui->form_customer_info->hide();
+        ui->form_customer_id->show();
+    }
 }
 

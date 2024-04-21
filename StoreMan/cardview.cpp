@@ -11,6 +11,11 @@ void CardView::on_addToCartButton_clicked()
     setLayout(grideLayout);
 }
 
+void CardView::deleteProductButton() {
+    Product product(db);
+    product.deleteProduct(productInfo->id);
+}
+
 void CardView::on_increase_clicked()
 {
     indexProduct = orderInfo->ids_product.indexOf(productInfo->id);
@@ -83,7 +88,7 @@ void CardView::setGridLayout()
 
     grideLayout = new QGridLayout();
     grideLayout->addWidget(nameLabel,0, 0, 1, 6);
-    grideLayout->addWidget(deleteLabel, 0, 5, 1, 1);
+    grideLayout->addWidget(deleteButton, 0, 6, 1, 1);
     grideLayout->addWidget(imageLabel, 1, 0, 3, 3);
     if (productInfo->discount != 0){
         grideLayout->addWidget(priceLabel, 1, 4, 1, 3);
@@ -98,7 +103,7 @@ void CardView::setGridLayout()
     setLayout(grideLayout);
 }
 
-CardView::CardView(ProductInformation* productInfo, OrderInformation* orderInfo):productInfo(productInfo), orderInfo(orderInfo)
+CardView::CardView(ProductInformation* productInfo, OrderInformation* orderInfo, QSqlDatabase* db):productInfo(productInfo), orderInfo(orderInfo), db(db)
 {
     nameLabel = new QLabel(productInfo->productName);
 
@@ -133,8 +138,9 @@ CardView::CardView(ProductInformation* productInfo, OrderInformation* orderInfo)
     numberProductLineEdit->connect(numberProductLineEdit, &QLineEdit::textChanged, this, &CardView::lineEditTextChanged);
 
 
-    deleteLabel = new QPushButton();
-    deleteLabel->setStyleSheet("background-image:url(':/stor/delete.png'); border:none;");
+    deleteButton = new QPushButton();
+    deleteButton->connect(deleteButton, &QPushButton::clicked, this, &CardView::deleteProductButton);
+
 
 
 

@@ -38,7 +38,7 @@ bool Product::deleteProduct(int id)
     QString deleteQuery = "DELETE FROM product WHERE id = :id"
             "VALUES (:id)";
     query.prepare(deleteQuery);
-    query.bindValue(":id", id);
+
 }
 
 QVector<ProductInformation> Product::getAllProduct() {
