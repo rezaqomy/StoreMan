@@ -5,12 +5,14 @@
 #include "product.h"
 
 MainWindow::MainWindow(QSqlDatabase* db, QWidget *parent)
-    : QMainWindow(parent), db(db)
+    : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
+    this->db = db;
     ui->setupUi(this);
-    ui->icon_name_widget->hide();
 
+    ui->icon_name_widget->hide();
+    product_clicked();
 }
 
 MainWindow::~MainWindow()
@@ -23,7 +25,6 @@ MainWindow::~MainWindow()
 
 void MainWindow::product_clicked(){
     /* TODO */
-    // ADD CARD VIEW HORIZANTALI
     // SHOW THE IMAGE IN CARD VIEW
 
 
@@ -32,16 +33,18 @@ void MainWindow::product_clicked(){
     QGridLayout* gridLayout = new QGridLayout();
     QScrollArea* scrollArea = new QScrollArea();
     QWidget* window = new QWidget();
+    OrderInformation* order = new OrderInformation;
 
     window->setWindowTitle("Product List");
     for (int i = 0; i < prsInfo.size(); ++i) {
-        CardView* cardView = new CardView(prsInfo[i].productName, "stor/stats.png", prsInfo[i].price);
+        CardView* cardView = new CardView(&prsInfo[i], order);
         // cardView->setStyleSheet("border-radius:40.px; background-color: rgb(201, 214, 223);");
         gridLayout->addWidget(cardView, i / 3, i % 3);
-        qDebug() << prsInfo[i].productName << prsInfo[i].price;
+        qDebug() << prsInfo[i].productName << prsInfo[i].imageAddress;
     }
-    ui->all_product_widget->setLayout(gridLayout);
 
+    ui->scrollArea->setWidget(window);
+    window->setLayout(gridLayout);
 
     ui->Screen_widget->setCurrentIndex(0);
 }

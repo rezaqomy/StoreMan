@@ -9,10 +9,11 @@ Order::Order(QSqlDatabase* db): db(db)
 }
 
 int Order::addOrder(OrderInformation* ordInfo) {
-    QString InsertOrder = "INSERT INTO order(ids_product, prices,  discounted_prices, discount_rate, order_date , id_customer)"
-            "VALUES(:ids_product, :prices,  :discounted_prices, :discount_rate, :order_date , :id_customer)";
+    QString InsertOrder = "INSERT INTO order(ids_product, quantity, prices,  discounted_prices, discount_rate, order_date , id_customer)"
+            "VALUES(:ids_product, :quantity, :prices,  :discounted_prices, :discount_rate, :order_date , :id_customer)";
     query.prepare(InsertOrder);
     query.bindValue(":ids_product", vectorToQString(ordInfo->ids_product));
+    query.bindValue(":quantity", vectorToQString(ordInfo->quantity));
     query.bindValue(":prices", vectorToQString(ordInfo->prices));
     query.bindValue(":discount_prices", vectorToQString(ordInfo->discounted_prices));
     query.bindValue(":discounted_prices", vectorToQString(ordInfo->discounted_prices));
@@ -29,7 +30,7 @@ int Order::addOrder(OrderInformation* ordInfo) {
 QString Order::vectorToQString(QVector<int> vec) noexcept{
     QString json = "{ ";
     for(int i{}; i < vec.size(); i++){
-        if (!i == 0){
+        if (!(i == 0)){
             json += ", " + QString::number(vec[i]);
         }
         else

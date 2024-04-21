@@ -10,6 +10,7 @@
 struct OrderInformation {
   int id_order;
   QVector<int> ids_product;
+  QVector<int> quantity;
   QVector<int> prices;
   QVector<int> discounted_prices;
   int discount_rate;

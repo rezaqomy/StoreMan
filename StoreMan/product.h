@@ -28,6 +28,7 @@ private:
     void queryToVector(QVector<ProductInformation>* allProduct);
 
 public:
+    bool deleteProduct(int id);
     int addProduct(ProductInformation* prinfo);
     ProductInformation* getProduct(int id);
     bool updateValues(ProductInformation* prinfo);

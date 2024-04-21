@@ -782,11 +782,7 @@ QPushButton:checked{
           <item>
            <widget class="QStackedWidget" name="Screen_widget">
             <property name="styleSheet">
-             <string notr="true">QPushButton{
-	color: rgb(82, 97, 107);
-	border:none;
-	text-align:left;
-}
+             <string notr="true">
 QLabel{
 	text-align:center;
 	color:rgb(30, 32, 34);
@@ -827,7 +823,11 @@ QLineEdit{
                    <cursorShape>PointingHandCursor</cursorShape>
                   </property>
                   <property name="styleSheet">
-                   <string notr="true"/>
+                   <string notr="true">QPushButton{
+	color: rgb(82, 97, 107);
+	border:none;
+	text-align:left;
+}</string>
                   </property>
                   <property name="text">
                    <string>All Products</string>

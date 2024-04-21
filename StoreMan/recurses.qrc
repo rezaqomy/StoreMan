@@ -18,5 +18,7 @@
         <file>stor/coins2.png</file>
         <file>stor/shopping-cart2.png</file>
         <file>stor/stats.png</file>
+        <file>stor/imageNotFound.jpg</file>
+        <file>stor/delete.png</file>
     </qresource>
 </RCC>
